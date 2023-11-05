@@ -10,22 +10,22 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
 
-public class SearchBySlang extends JFrame implements ActionListener {
+public class SearchByDefinition extends JFrame implements ActionListener {
 	private final Dictionary Dictionary;
 	private final JButton searchBtn;
 	private final JButton backBtn, exitBtn;
 	private final JTextField textField;
 	private final JList<String> list;
 	
-	public SearchBySlang(Dictionary dictionary) {
+	public SearchByDefinition(Dictionary dictionary) {
 		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		this.setTitle("Search By Slang");
+		this.setTitle("Search By Definition");
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);
-		label.setText("Search Definition of Slang");
+		label.setText("Search Slang By Definition");
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		label.setForeground(Color.BLACK);
 		label.setHorizontalTextPosition(JLabel.CENTER);
@@ -40,10 +40,10 @@ public class SearchBySlang extends JFrame implements ActionListener {
 		panel.setOpaque(true);
 		
 		JLabel container = new JLabel();
-		container.setText("Input the slang word you want to search");
+		container.setText("Enter the definition you want to search");
 		container.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		container.setForeground(Color.BLACK);
-		container.setBounds(50, 10, 300, 50);
+		container.setBounds(60, 10, 300, 50);
 		
 		textField = new JTextField();
 		textField.setBounds(50, 60, 300, 30);
@@ -77,7 +77,7 @@ public class SearchBySlang extends JFrame implements ActionListener {
 		backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		backBtn.addActionListener(this);
 		
-		exitBtn = new JButton("Cancel");
+		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
 		exitBtn.setBounds(350, 400, 100, 30);
 		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
@@ -108,14 +108,14 @@ public class SearchBySlang extends JFrame implements ActionListener {
 			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 		} else if (e.getSource() == searchBtn) {
 			String word = textField.getText().replaceAll(" ", "");
-			List<String> items = this.Dictionary.findBySlangWord(word);
+			List<String> items = this.Dictionary.findByDefinition(word);
 			if (items != null) {
 				DefaultListModel<String> temp = new DefaultListModel<>();
 				temp.addAll(items);
 				list.setModel(temp);
-			} else {
+			}else {
 				DefaultListModel<String> temp = new DefaultListModel<>();
-				temp.addElement(textField.getText() + " doesn't exist.");
+				temp.addElement(textField.getText() + " doesn't exist. Please try another!!!");
 				list.setModel(temp);
 			}
 		}

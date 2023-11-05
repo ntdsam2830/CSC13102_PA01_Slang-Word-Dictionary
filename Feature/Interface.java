@@ -12,11 +12,11 @@ import java.awt.event.WindowEvent;
 
 public class Interface extends JFrame implements ActionListener {
 	private final Dictionary Dictionary;
-	private final JButton searchSlangBtn, searchDefinitionBtn, searchHistory;
+	private final JButton searchSlangBtn, searchDefinitionBtn, viewHistory;
 	private final JButton addBtn, editBtn, deleteBtn;
 	private final JButton resetBtn, randomBtn;
 	private final JButton slangGameBtn, definitionGameBtn;
-	private final JButton cancelBtn;
+	private final JButton exitBtn;
 	
 	public Interface(Dictionary dictionary) {
 		this.Dictionary = dictionary;
@@ -45,9 +45,9 @@ public class Interface extends JFrame implements ActionListener {
 		searchDefinitionBtn.setFocusable(false);
 		searchDefinitionBtn.addActionListener(this);
 		
-		searchHistory = new JButton("Search History");
-		searchHistory.setFocusable(false);
-		searchHistory.addActionListener(this);
+		viewHistory = new JButton("View History");
+		viewHistory.setFocusable(false);
+		viewHistory.addActionListener(this);
 		
 		addBtn = new JButton("Add Slang");
 		addBtn.setFocusable(false);
@@ -79,7 +79,7 @@ public class Interface extends JFrame implements ActionListener {
 		
 		panel.add(searchSlangBtn);
 		panel.add(searchDefinitionBtn);
-		panel.add(searchHistory);
+		panel.add(viewHistory);
 		panel.add(addBtn);
 		panel.add(editBtn);
 		panel.add(deleteBtn);
@@ -88,15 +88,15 @@ public class Interface extends JFrame implements ActionListener {
 		panel.add(slangGameBtn);
 		panel.add(definitionGameBtn);
 		
-		cancelBtn = new JButton("Cancel");
-		cancelBtn.setFocusable(false);
-		cancelBtn.setBounds(200, 400, 100, 30);
-		cancelBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		cancelBtn.addActionListener(this);
+		exitBtn = new JButton("Exit");
+		exitBtn.setFocusable(false);
+		exitBtn.setBounds(200, 400, 100, 30);
+		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		exitBtn.addActionListener(this);
 		
 		this.add(label);
 		this.add(panel);
-		this.add(cancelBtn);
+		this.add(exitBtn);
 		this.setSize(500, 500);
 		this.setLayout(null);
 		this.setVisible(true);
@@ -113,12 +113,12 @@ public class Interface extends JFrame implements ActionListener {
 		if (searchSlangBtn.equals(e.getSource())) {
 			this.dispose();
 			new SearchBySlang(this.Dictionary);
-		// } else if (searchDefinitionBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new SearchByDefinition(this.slangDictionary);
-		// } else if (searchHistory.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new SearchHistory(this.slangDictionary);
+		} else if (searchDefinitionBtn.equals(e.getSource())) {
+			this.dispose();
+			new SearchByDefinition(this.Dictionary);
+		} else if (viewHistory.equals(e.getSource())) {
+			this.dispose();
+			new ViewHistory(this.Dictionary);
 		// } else if (addBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new AddSlang(this.slangDictionary);
@@ -140,7 +140,7 @@ public class Interface extends JFrame implements ActionListener {
 		// } else if (definitionGameBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new DefinitionGame(this.slangDictionary);
-		// } else if (e.getSource() == cancelBtn) {
+		// } else if (e.getSource() == exitBtn) {
 		// 	this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 		// }
 	}
