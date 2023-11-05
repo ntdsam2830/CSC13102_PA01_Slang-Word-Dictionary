@@ -9,13 +9,17 @@ public class Districts implements ActionListener {
   public Districts() {
     String[] districts = { "District 1", "District 2", "District 3", "District 4", "District 5" };
 
-    JFrame f = new JFrame("Choose district");
+    JFrame f = new JFrame("Slang Dictionary");
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JComboBox comboBox = new JComboBox(districts);
     comboBox.addActionListener(this);
 
     JLabel label = new JLabel("Choose district", null, 0);
+    JLabel label1 = new JLabel("Choose district", null, 0);
+    JLabel label2 = new JLabel("Choose district", null, 0);
+    JLabel label3 = new JLabel("Choose district", null, 0);
+    
 
     JButton okButton = new JButton("OK");
     okButton.addActionListener(new ActionListener() {
