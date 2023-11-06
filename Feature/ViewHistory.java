@@ -44,7 +44,7 @@ public class ViewHistory extends JFrame implements ActionListener {
 		exitBtn.addActionListener(this);
 		
 		model = new DefaultListModel<>();
-		model.addAll(this.Dictionary.getHistorySearch());
+		model.addAll(this.Dictionary.gethistoryList());
 		list = new JList<>(model);
 		list.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		

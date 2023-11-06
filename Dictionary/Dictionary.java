@@ -2,10 +2,12 @@ package Dictionary;
 
 import java.io.*;
 import java.util.*;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 public class Dictionary {
-	private static final Hashtable<String, List<String>> dictionary = new Hashtable<>();
-	private static final List<String> historySearch = new ArrayList<>();
+	private static final TreeMap<String, List<String>> dictionary = new TreeMap<>();
+	private static final List<String> historyList = new ArrayList<>();
 	
 	//Get Data
 	public void getData() {
@@ -33,7 +35,7 @@ public class Dictionary {
 			BufferedReader br = new BufferedReader(new FileReader("Data/history.txt"));
 			String line;
 			while ((line = br.readLine()) != null) {
-				historySearch.add(line);
+				historyList.add(line);
 			}
 			br.close();
 		} catch (Exception ex) {
@@ -43,18 +45,21 @@ public class Dictionary {
 	
 	// Clear Search History
 	public void clearHistory() {
-		historySearch.clear();
+		historyList.clear();
 	}
 	
 	// 1. Find Definition of Slang words
 	public List<String> findBySlangWord(String word) {
-		for (int i = 0; i < historySearch.size(); i++) {
-			if (Objects.equals(historySearch.get(i), word)) {
+		LocalDateTime current = LocalDateTime.now();
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+    	String formatted = current.format(formatter);
+		for (int i = 0; i < historyList.size(); i++) {
+			if (Objects.equals(historyList.get(i), word)) {
 				word = word.toUpperCase();
 				return dictionary.get(word);
 			}
 		}
-		historySearch.add(word);
+		historyList.add(word + " " +formatted);
 		word = word.toUpperCase();
 		return dictionary.get(word);
 	}
@@ -66,8 +71,11 @@ public class Dictionary {
 	
 	// 2. Find all Slang words which have same definition
 	public List<String> findByDefinition(String word) {
-		for (int i = 0; i < historySearch.size(); i++) {
-			if (Objects.equals(historySearch.get(i), word)) {
+		LocalDateTime current = LocalDateTime.now();
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+    	String formatted = current.format(formatter);
+		for (int i = 0; i < historyList.size(); i++) {
+			if (Objects.equals(historyList.get(i), word)) {
 				List<String> slangList = new ArrayList<>();
 				for (String s : dictionary.keySet()) {
 					List<String> values = dictionary.get(s);
@@ -81,7 +89,7 @@ public class Dictionary {
 				return slangList;
 			}
 		}
-		historySearch.add(word);
+		historyList.add(word + " " + formatted);
 		List<String> slangList = new ArrayList<>();
 		for (String s : dictionary.keySet()) {
 			List<String> values = dictionary.get(s);
@@ -96,8 +104,8 @@ public class Dictionary {
 	}
 	
 	// 3. Get search history
-	public List<String> getHistorySearch() {
-		return historySearch;
+	public List<String> gethistoryList() {
+		return historyList;
 	}
 	
 	// 4. Add or overwrite or duplicate a slang
@@ -301,7 +309,7 @@ public class Dictionary {
 	public void updateHistory() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("src/Data/history.txt"));
-			for (String temp : historySearch) {
+			for (String temp : historyList) {
 				bw.write(temp + "\n");
 			}
 			bw.close();

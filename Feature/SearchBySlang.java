@@ -40,7 +40,7 @@ public class SearchBySlang extends JFrame implements ActionListener {
 		panel.setOpaque(true);
 		
 		JLabel container = new JLabel();
-		container.setText("Input the slang word you want to search");
+		container.setText("Enter the slang word you want to search");
 		container.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		container.setForeground(Color.BLACK);
 		container.setBounds(50, 10, 300, 50);
@@ -77,7 +77,7 @@ public class SearchBySlang extends JFrame implements ActionListener {
 		backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		backBtn.addActionListener(this);
 		
-		exitBtn = new JButton("Cancel");
+		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
 		exitBtn.setBounds(350, 400, 100, 30);
 		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
@@ -115,7 +115,7 @@ public class SearchBySlang extends JFrame implements ActionListener {
 				list.setModel(temp);
 			} else {
 				DefaultListModel<String> temp = new DefaultListModel<>();
-				temp.addElement(textField.getText() + " doesn't exist.");
+				temp.addElement(textField.getText() + " doesn't exist.Please try again!!!");
 				list.setModel(temp);
 			}
 		}

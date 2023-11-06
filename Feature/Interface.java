@@ -140,9 +140,8 @@ public class Interface extends JFrame implements ActionListener {
 		// } else if (definitionGameBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new DefinitionGame(this.slangDictionary);
-		// } else if (e.getSource() == exitBtn) {
-		// 	this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-		// }
+		} else if (e.getSource() == exitBtn) {
+			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+		}
 	}
-}
 }

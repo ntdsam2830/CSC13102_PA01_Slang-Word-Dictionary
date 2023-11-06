@@ -115,7 +115,7 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 				list.setModel(temp);
 			}else {
 				DefaultListModel<String> temp = new DefaultListModel<>();
-				temp.addElement(textField.getText() + " doesn't exist. Please try another!!!");
+				temp.addElement(textField.getText() + " doesn't exist. Please try again!!!");
 				list.setModel(temp);
 			}
 		}
