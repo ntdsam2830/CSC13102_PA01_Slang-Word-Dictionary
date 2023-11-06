@@ -19,23 +19,13 @@ public class Interface extends JFrame implements ActionListener {
 	private final JButton exitBtn;
 	
 	public Interface(Dictionary dictionary) {
-		this.Dictionary = dictionary;
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Slang Dictionary");
-		this.setResizable(false);
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);
 		label.setText("Slang Dictionary");
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 40));
-		label.setHorizontalTextPosition(JLabel.CENTER);
-		label.setVerticalTextPosition(JLabel.CENTER);
-		label.setHorizontalAlignment(JLabel.CENTER);
-		label.setVerticalAlignment(JLabel.CENTER);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(50, 130, 400, 250);
-		panel.setLayout(new GridLayout(5, 2, 10, 10));
+		label.setAlignmentX(CENTER_ALIGNMENT);
+		//label.setForeground(Color.green);
 		
 		searchSlangBtn = new JButton("Search By Slang");
 		searchSlangBtn.setFocusable(false);
@@ -77,6 +67,9 @@ public class Interface extends JFrame implements ActionListener {
 		definitionGameBtn.setFocusable(false);
 		definitionGameBtn.addActionListener(this);
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(50, 130, 400, 250);
+		panel.setLayout(new GridLayout(3, 3, 10, 10));
 		panel.add(searchSlangBtn);
 		panel.add(searchDefinitionBtn);
 		panel.add(viewHistory);
@@ -107,6 +100,25 @@ public class Interface extends JFrame implements ActionListener {
 				super.windowClosing(e);
 			}
 		});
+
+		Dimension size2 = new Dimension(600, 500);
+		panel.setMaximumSize(size2);
+		panel.setPreferredSize(size2);
+		panel.setMinimumSize(size2);
+		Container con = this.getContentPane();
+		con.setLayout(new BoxLayout(con, BoxLayout.Y_AXIS));
+		con.add(Box.createRigidArea(new Dimension(0, 10)));
+		con.add(label);
+		con.add(Box.createRigidArea(new Dimension(0, 30)));
+		con.add(panel);
+
+		this.Dictionary = dictionary;
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Main Window");
+		this.setVisible(true);
+		this.setSize(700, 700);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 	}
 	
 	@Override public void actionPerformed(ActionEvent e) {
@@ -119,27 +131,27 @@ public class Interface extends JFrame implements ActionListener {
 		} else if (viewHistory.equals(e.getSource())) {
 			this.dispose();
 			new ViewHistory(this.Dictionary);
-		// } else if (addBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new AddSlang(this.slangDictionary);
+		} else if (addBtn.equals(e.getSource())) {
+			this.dispose();
+			new AddSlang(this.Dictionary);
 		// } else if (editBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new EditSlang(this.slangDictionary);
-		// } else if (deleteBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new DeleteSlang(this.slangDictionary);
+		} else if (deleteBtn.equals(e.getSource())) {
+			this.dispose();
+			new DeleteSlang(this.Dictionary);
 		// } else if (randomBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new RandomSlang(this.slangDictionary);
 		// } else if (resetBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new ResetDict(this.slangDictionary);
-		// } else if (slangGameBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new SlangGame(this.slangDictionary);
-		// } else if (definitionGameBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new DefinitionGame(this.slangDictionary);
+		} else if (slangGameBtn.equals(e.getSource())) {
+			this.dispose();
+			new MiniGame(this.Dictionary);
+		} else if (definitionGameBtn.equals(e.getSource())) {
+			this.dispose();
+			new MiniGame2(this.Dictionary);
 		} else if (e.getSource() == exitBtn) {
 			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 		}
