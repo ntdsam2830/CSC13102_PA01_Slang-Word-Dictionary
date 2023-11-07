@@ -23,12 +23,14 @@ public class MiniGame2 extends JFrame implements ActionListener {
 	public MiniGame2(Dictionary dictionary) {
 		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Slang Game");
+		this.setTitle("Mini Game");
 		this.setResizable(false);
+        this.setSize(700, 700);
+        this.setLocation(500, 200);
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 30, 300, 50);
-		label.setText("Mini Game about Definition");
+		label.setText("Mini Game Slang Definition");
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		label.setForeground(Color.BLACK);
 		label.setHorizontalTextPosition(JLabel.CENTER);

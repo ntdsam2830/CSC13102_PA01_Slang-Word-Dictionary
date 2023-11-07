@@ -18,8 +18,10 @@ public class Reset extends JFrame implements ActionListener {
 	public Reset(Dictionary dictionary) {
 		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Reset Dictionary");
+		this.setTitle("Reset");
 		this.setResizable(false);
+        this.setSize(700, 700);
+        this.setLocation(500, 200);;
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);

@@ -20,8 +20,10 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 	public SearchByDefinition(Dictionary dictionary) {
 		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Search Slang");
 		this.setResizable(false);
-		this.setTitle("Search By Definition");
+        this.setSize(700, 700);
+        this.setLocation(500, 200);
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);

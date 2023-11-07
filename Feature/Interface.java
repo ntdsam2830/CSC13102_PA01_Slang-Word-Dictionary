@@ -25,7 +25,6 @@ public class Interface extends JFrame implements ActionListener {
 		label.setText("Slang Dictionary");
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 		label.setAlignmentX(CENTER_ALIGNMENT);
-		//label.setForeground(Color.green);
 		
 		searchSlangBtn = new JButton("Search By Slang");
 		searchSlangBtn.setFocusable(false);
@@ -66,10 +65,14 @@ public class Interface extends JFrame implements ActionListener {
 		definitionGameBtn = new JButton("Mini Game (Definition)");
 		definitionGameBtn.setFocusable(false);
 		definitionGameBtn.addActionListener(this);
+
+		exitBtn = new JButton("Exit");
+		exitBtn.setFocusable(false);
+		exitBtn.addActionListener(this);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(50, 130, 400, 250);
-		panel.setLayout(new GridLayout(3, 3, 10, 10));
+		panel.setLayout(new GridLayout(4, 4, 8, 8));
 		panel.add(searchSlangBtn);
 		panel.add(searchDefinitionBtn);
 		panel.add(viewHistory);
@@ -80,16 +83,10 @@ public class Interface extends JFrame implements ActionListener {
 		panel.add(randomBtn);
 		panel.add(slangGameBtn);
 		panel.add(definitionGameBtn);
-		
-		exitBtn = new JButton("Exit");
-		exitBtn.setFocusable(false);
-		exitBtn.setBounds(200, 400, 100, 30);
-		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		exitBtn.addActionListener(this);
+		panel.add(exitBtn);
 		
 		this.add(label);
 		this.add(panel);
-		this.add(exitBtn);
 		this.setSize(500, 500);
 		this.setLayout(null);
 		this.setVisible(true);

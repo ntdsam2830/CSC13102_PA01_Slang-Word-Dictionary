@@ -189,7 +189,7 @@ public class Dictionary {
 	public void resetDictionary() {
 		dictionary.clear();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("src/Data/default.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("Data/original.txt"));
 			String data;
 			while ((data = br.readLine()) != null) {
 				if (data.contains("`")) {
@@ -206,6 +206,11 @@ public class Dictionary {
 		}
 	}
 	
+	// LocalTime time1 = LocalTime.now();
+	// LocalTime time2 = LocalTime.of(24, 0, 0);
+	// if (time1.isAfter(time2)) {
+		
+	// }
 	// 8. Random a slang in dictionary
 	public String randomSlang() {
 		Random rd = new Random();

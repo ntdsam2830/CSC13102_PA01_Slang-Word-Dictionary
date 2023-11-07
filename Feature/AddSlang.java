@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AddSlang extends JFrame implements ActionListener {
-	Dictionary slangDictionary;
+	Dictionary Dictionary;
 	JPanel panel;
 	JTextField slangField, definitionField;
 	JButton backBtn, exitBtn;
@@ -22,10 +22,12 @@ public class AddSlang extends JFrame implements ActionListener {
 	JLabel notification, success;
 	
 	public AddSlang(Dictionary dictionary) {
-		this.slangDictionary = dictionary;
+		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Add Slang");
 		this.setResizable(false);
+        this.setSize(700, 700);
+        this.setLocation(500, 200);
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 20, 300, 50);
@@ -127,8 +129,8 @@ public class AddSlang extends JFrame implements ActionListener {
 		this.setVisible(true);
 		this.addWindowListener(new WindowAdapter() {
 			@Override public void windowClosing(WindowEvent e) {
-				slangDictionary.updateData();
-				slangDictionary.updateHistory();
+				Dictionary.updateData();
+				Dictionary.updateHistory();
 				super.windowClosing(e);
 			}
 		});
@@ -137,7 +139,7 @@ public class AddSlang extends JFrame implements ActionListener {
 	@Override public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == backBtn) {
 			this.dispose();
-			new Interface(this.slangDictionary);
+			new Interface(this.Dictionary);
 		} else if (e.getSource() == exitBtn) {
 			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 		} else if (e.getSource() == addBtn) {
@@ -146,12 +148,12 @@ public class AddSlang extends JFrame implements ActionListener {
 			List<String> temp = new ArrayList<>(Arrays.asList(d.split(",")));
 			temp.replaceAll(String::stripLeading);
 			temp.replaceAll(String::stripTrailing);
-			if (this.slangDictionary.findBySlangWord(slangField.getText()) != null) {
+			if (this.Dictionary.findBySlangWord(slangField.getText()) != null) {
 				notification.setVisible(true);
 				overwriteBtn.setVisible(true);
 				duplicateBtn.setVisible(true);
 			} else {
-				this.slangDictionary.addSlangWord(slangField.getText(), temp, "add");
+				this.Dictionary.addSlangWord(slangField.getText(), temp, "add");
 				success.setVisible(true);
 			}
 		} else if (e.getSource() == overwriteBtn) {
@@ -159,7 +161,7 @@ public class AddSlang extends JFrame implements ActionListener {
 			List<String> temp = new ArrayList<>(Arrays.asList(d.split(",")));
 			temp.replaceAll(String::stripLeading);
 			temp.replaceAll(String::stripTrailing);
-			this.slangDictionary.addSlangWord(slangField.getText(), temp, "overwrite");
+			this.Dictionary.addSlangWord(slangField.getText(), temp, "overwrite");
 			success.setVisible(true);
 			notification.setVisible(false);
 			overwriteBtn.setVisible(false);
@@ -169,7 +171,7 @@ public class AddSlang extends JFrame implements ActionListener {
 			List<String> temp = new ArrayList<>(Arrays.asList(d.split(",")));
 			temp.replaceAll(String::stripLeading);
 			temp.replaceAll(String::stripTrailing);
-			this.slangDictionary.addSlangWord(slangField.getText(), temp, "duplicate");
+			this.Dictionary.addSlangWord(slangField.getText(), temp, "duplicate");
 			success.setVisible(true);
 			notification.setVisible(false);
 			overwriteBtn.setVisible(false);

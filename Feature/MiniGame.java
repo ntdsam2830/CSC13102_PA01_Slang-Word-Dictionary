@@ -23,8 +23,10 @@ public class MiniGame extends JFrame implements ActionListener {
 	public MiniGame(Dictionary dictionary) {
 		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Mini Game");
+		this.setTitle("Add Slang");
 		this.setResizable(false);
+        this.setSize(700, 700);
+        this.setLocation(500, 200);
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 30, 300, 50);
