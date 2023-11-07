@@ -134,18 +134,18 @@ public class Interface extends JFrame implements ActionListener {
 		} else if (addBtn.equals(e.getSource())) {
 			this.dispose();
 			new AddSlang(this.Dictionary);
-		// } else if (editBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new EditSlang(this.slangDictionary);
+		} else if (editBtn.equals(e.getSource())) {
+			this.dispose();
+			new EditSlang(this.Dictionary);
 		} else if (deleteBtn.equals(e.getSource())) {
 			this.dispose();
 			new DeleteSlang(this.Dictionary);
-		// } else if (randomBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new RandomSlang(this.slangDictionary);
-		// } else if (resetBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new ResetDict(this.slangDictionary);
+		} else if (randomBtn.equals(e.getSource())) {
+			this.dispose();
+			new RandomSlang(this.Dictionary);
+		} else if (resetBtn.equals(e.getSource())) {
+			this.dispose();
+			new Reset(this.Dictionary);
 		} else if (slangGameBtn.equals(e.getSource())) {
 			this.dispose();
 			new MiniGame(this.Dictionary);

@@ -13,8 +13,8 @@ public class SlangWord {
 	private TreeMap<String, List<String>> map = new TreeMap<>();
 	private static SlangWord obj = new SlangWord();// Early, instance will be created at load time
 	private int sizeMap;
-	private String FILE_SLANGWORD = "slangword.txt";
-	private String FILE_ORIGINAL_SLANGWORD = "slangword-goc.txt";
+	private String FILE_SLANGWORD = "data.txt";
+	private String FILE_ORIGINAL_SLANGWORD = "data.txt";
 	private String FILE_HISTORY = "history.txt";
 
 	private SlangWord() {

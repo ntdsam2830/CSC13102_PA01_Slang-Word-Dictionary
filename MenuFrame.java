@@ -129,7 +129,7 @@ public class MenuFrame extends JFrame implements ActionListener {
 
 		} else if (e.getSource() == b4) {
 			this.dispose();
-			// new RandomFrame();
+			new RandomFrame();
 
 		} else if (e.getSource() == b5) {
 			this.dispose();

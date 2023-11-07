@@ -10,12 +10,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
 
-/**
- * GUI
- * Created by Thai Duong
- * Date 11/16/2022 - 3:38 PM
- * Description: ...
- */
 public class EditSlang extends JFrame implements ActionListener {
 	private final Dictionary Dictionary;
 	private final JButton backBtn, exitBtn;
@@ -49,7 +43,7 @@ public class EditSlang extends JFrame implements ActionListener {
 		panel.setOpaque(true);
 		
 		JLabel slangLabel = new JLabel();
-		slangLabel.setText("Input slang:");
+		slangLabel.setText("Enter slang:");
 		slangLabel.setBounds(120, 5, 70, 30);
 		
 		editSlang = new JTextField();
@@ -91,7 +85,7 @@ public class EditSlang extends JFrame implements ActionListener {
 		scrollPane.setVisible(false);
 		
 		replaceLabel = new JLabel();
-		replaceLabel.setText("Input definition you want to replace:");
+		replaceLabel.setText("Enter definition you want to replace:");
 		replaceLabel.setBounds(50, 220, 300, 30);
 		replaceLabel.setVisible(false);
 		
@@ -99,14 +93,14 @@ public class EditSlang extends JFrame implements ActionListener {
 		editDefinition.setBounds(50, 250, 300, 30);
 		editDefinition.setVisible(false);
 		
-		replaceConfirm = new JButton("Replace now");
+		replaceConfirm = new JButton("Replace");
 		replaceConfirm.setBounds(140, 290, 120, 30);
 		replaceConfirm.setVisible(false);
 		replaceConfirm.addActionListener(this);
 		replaceConfirm.setFocusable(false);
 		
 		// Delete Option
-		deleteConfirm = new JButton("Delete now");
+		deleteConfirm = new JButton("Delete");
 		deleteConfirm.setBounds(140, 290, 120, 30);
 		deleteConfirm.setVisible(false);
 		deleteConfirm.setFocusable(false);
@@ -114,11 +108,11 @@ public class EditSlang extends JFrame implements ActionListener {
 		
 		// Add Option
 		addLabel = new JLabel();
-		addLabel.setText("Input definition you want to add:");
+		addLabel.setText("Enter the definition you want to add:");
 		addLabel.setBounds(50, 220, 300, 30);
 		addLabel.setVisible(false);
 		
-		addConfirm = new JButton("Add now");
+		addConfirm = new JButton("Add");
 		addConfirm.setBounds(140, 290, 120, 30);
 		addConfirm.setVisible(false);
 		addConfirm.setFocusable(false);
