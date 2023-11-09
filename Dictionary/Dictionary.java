@@ -9,6 +9,9 @@ public class Dictionary {
 	private static final TreeMap<String, List<String>> dictionary = new TreeMap<>();
 	private static final List<String> historyList = new ArrayList<>();
 	
+	public TreeMap<String, List<String>> getDictionary(){
+		return dictionary;
+	}
 	//Get Data
 	public void getData() {
 		try {

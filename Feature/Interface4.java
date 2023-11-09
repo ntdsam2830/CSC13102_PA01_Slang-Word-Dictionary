@@ -10,12 +10,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 
-public class Interface extends JFrame implements ActionListener {
+public class Interface4 extends JFrame implements ActionListener {
 	private final Dictionary Dictionary;
-	private final JButton searchBtn, editBtn, gameBtn, moreBtn;
-	private final JButton exitBtn;
+	private final JButton historyBtn,resetBtn;
+	private final JButton backBtn,exitBtn;
 	
-	public Interface(Dictionary dictionary) {
+	public Interface4(Dictionary dictionary) {
 		
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);
@@ -23,13 +23,13 @@ public class Interface extends JFrame implements ActionListener {
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 40));
 		label.setAlignmentX(CENTER_ALIGNMENT);
 		
-		searchBtn = new JButton("Search");
-		searchBtn.setFocusable(false);
-		searchBtn.addActionListener(this);
+		historyBtn = new JButton("View History");
+		historyBtn .setFocusable(false);
+		historyBtn .addActionListener(this);
 		
-		// searchDefinitionBtn = new JButton("Search By Definition");
-		// searchDefinitionBtn.setFocusable(false);
-		// searchDefinitionBtn.addActionListener(this);
+		resetBtn = new JButton("Reset Dictionary");
+		resetBtn.setFocusable(false);
+		resetBtn.addActionListener(this);
 		
 		// viewHistory = new JButton("View History");
 		// viewHistory.setFocusable(false);
@@ -39,42 +39,23 @@ public class Interface extends JFrame implements ActionListener {
 		// addBtn.setFocusable(false);
 		// addBtn.addActionListener(this);
 		
-		editBtn = new JButton("Edit");
-		editBtn.setFocusable(false);
-		editBtn.addActionListener(this);
-		
-		// deleteBtn = new JButton("Delete Slang");
-		// deleteBtn.setFocusable(false);
-		// deleteBtn.addActionListener(this);
-		
-		// resetBtn = new JButton("Reset Dictionary");
-		// resetBtn.setFocusable(false);
-		// resetBtn.addActionListener(this);
-		
-		// randomBtn = new JButton("Random Slang");
-		// randomBtn.setFocusable(false);
-		// randomBtn.addActionListener(this);
-		
-		gameBtn = new JButton("Mini Game");
-		gameBtn.setFocusable(false);
-		gameBtn.addActionListener(this);
-		
-		moreBtn = new JButton("More");
-		moreBtn.setFocusable(false);
-		moreBtn.addActionListener(this);
+		// deleteSlang = new JButton("Delete Slang");
+		// deleteSlang.setFocusable(false);
+		// deleteSlang.addActionListener(this);
 
 		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
-		exitBtn.setBounds(450, 450, 100, 30);
 		exitBtn.addActionListener(this);
+
+        backBtn = new JButton("Back");
+		backBtn.setFocusable(false);
+		backBtn.addActionListener(this);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(50, 0, 200, 100);
-		panel.setLayout(new GridLayout(2, 2, 5, 3));
-		panel.add(searchBtn);
-		panel.add(editBtn);
-		panel.add(gameBtn);
-		panel.add(moreBtn);
+		// panel.setBounds(50, 0, 500, 100);
+		panel.setLayout(new GridLayout(2, 2, 4, 3));
+		panel.add(historyBtn);
+		panel.add(resetBtn);
 		// panel.add(editBtn);
 		// panel.add(deleteBtn);
 		// panel.add(resetBtn);
@@ -84,8 +65,9 @@ public class Interface extends JFrame implements ActionListener {
 		// panel.add(exitBtn);
 		JPanel panel2 = new JPanel();
 		panel.setBounds(50,0 , 100, 100);
-		panel2.add(exitBtn);
-		
+		panel2.add(backBtn);
+        panel2.add(exitBtn);
+
 		this.add(label);
 		this.add(panel);
 		this.add(panel2);
@@ -100,7 +82,7 @@ public class Interface extends JFrame implements ActionListener {
 			}
 		});
 
-		Dimension size2 = new Dimension(600, 400);
+		Dimension size2 = new Dimension(400, 400);
 		panel.setMaximumSize(size2);
 		panel.setPreferredSize(size2);
 		panel.setMinimumSize(size2);
@@ -108,14 +90,14 @@ public class Interface extends JFrame implements ActionListener {
 		con.setLayout(new BoxLayout(con, BoxLayout.Y_AXIS));
 		con.add(Box.createRigidArea(new Dimension(0, 10)));
 		con.add(label);
-		con.add(Box.createRigidArea(new Dimension(0, 50)));
+		con.add(Box.createRigidArea(new Dimension(0, 60)));
 		con.add(panel);
-		con.add(Box.createRigidArea(new Dimension(0, 100)));
+        con.add(Box.createRigidArea(new Dimension(0, 100)));
 		con.add(panel2);
 
 		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Main Window");
+		this.setTitle("More Options");
 		this.setVisible(true);
 		this.setSize(700, 700);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -123,27 +105,18 @@ public class Interface extends JFrame implements ActionListener {
 	}
 	
 	@Override public void actionPerformed(ActionEvent e) {
-		if (searchBtn.equals(e.getSource())) {
-			this.dispose();
-			new Interface1(this.Dictionary);
-		}else if (editBtn.equals(e.getSource())) {
-			this.dispose();
-			new Interface2(this.Dictionary);
-		}else if (gameBtn.equals(e.getSource())) {
-			this.dispose();
-			new Interface3(this.Dictionary);
-		}else if (moreBtn.equals(e.getSource())) {
-			this.dispose();
-			new Interface4(this.Dictionary);
-		// } else if (searchDefinitionBtn.equals(e.getSource())) {
+		// if (search.equals(e.getSource())) {
 		// 	this.dispose();
-		// 	new SearchByDefinition(this.Dictionary);
-		// } else if (viewHistory.equals(e.getSource())) {
+		// 	new Interface1(this.Dictionary);
+		if (historyBtn.equals(e.getSource())) {
+			this.dispose();
+			new ViewHistory(this.Dictionary);
+		} else if (resetBtn.equals(e.getSource())) {
+			this.dispose();
+			new Reset(this.Dictionary);
+		// } else if (deleteSlang.equals(e.getSource())) {
 		// 	this.dispose();
-		// 	new ViewHistory(this.Dictionary);
-		// } else if (addBtn.equals(e.getSource())) {
-		// 	this.dispose();
-		// 	new AddSlang(this.Dictionary);
+		// 	new DeleteSlang(this.Dictionary);
 		// } else if (editBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new EditSlang(this.Dictionary);
@@ -162,6 +135,9 @@ public class Interface extends JFrame implements ActionListener {
 		// } else if (definitionGameBtn.equals(e.getSource())) {
 		// 	this.dispose();
 		// 	new MiniGame2(this.Dictionary);
+        } else if (e.getSource()== backBtn) {
+			this.dispose();
+			new Interface(this.Dictionary);
 		} else if (e.getSource() == exitBtn) {
 			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 		}

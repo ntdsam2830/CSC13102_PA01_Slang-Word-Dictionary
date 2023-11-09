@@ -165,7 +165,7 @@ public class MiniGame extends JFrame implements ActionListener {
 	@Override public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == backBtn) {
 			this.dispose();
-			new Interface(this.Dictionary);
+			new Interface3(this.Dictionary);
 		} else if (e.getSource() == exitBtn) {
 			this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 		} else if (e.getSource() == aBtn) {
