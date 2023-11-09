@@ -28,7 +28,7 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);
 		label.setText("Search Slang By Definition");
-		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label.setFont(new Font("Auto Sans", Font.PLAIN, 20));
 		label.setForeground(Color.BLACK);
 		label.setHorizontalTextPosition(JLabel.CENTER);
 		label.setVerticalTextPosition(JLabel.CENTER);
@@ -43,17 +43,17 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		
 		JLabel container = new JLabel();
 		container.setText("Enter the definition you want to search");
-		container.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		container.setFont(new Font("Auto Sans", Font.PLAIN, 18));
 		container.setForeground(Color.BLACK);
 		container.setBounds(60, 10, 300, 50);
 		
 		textField = new JTextField();
 		textField.setBounds(50, 60, 300, 30);
-		textField.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		textField.setFont(new Font("Auto Sans", Font.PLAIN, 18));
 		textField.setForeground(Color.BLACK);
 		
 		searchBtn = new JButton("Search");
-		searchBtn.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		searchBtn.setFont(new Font("Auto Sans", Font.PLAIN, 18));
 		searchBtn.setForeground(Color.BLACK);
 		searchBtn.setFocusable(false);
 		searchBtn.setBounds(150, 100, 100, 30);
@@ -66,7 +66,7 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		DefaultListModel<String> model = new DefaultListModel<>();
 		list = new JList<>(model);
 		list.setForeground(Color.BLACK);
-		list.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		list.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -76,13 +76,13 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		backBtn = new JButton("Back");
 		backBtn.setFocusable(false);
 		backBtn.setBounds(50, 400, 100, 30);
-		backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		backBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		backBtn.addActionListener(this);
 		
 		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
 		exitBtn.setBounds(350, 400, 100, 30);
-		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		exitBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		exitBtn.addActionListener(this);
 		
 		this.add(label);

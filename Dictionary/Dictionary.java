@@ -12,7 +12,7 @@ public class Dictionary {
 	public TreeMap<String, List<String>> getDictionary(){
 		return dictionary;
 	}
-	//Get Data
+
 	public void getData() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("Data/slang.txt"));
@@ -32,7 +32,6 @@ public class Dictionary {
 		}
 	}
 	
-	// Get History
 	public void getHistory() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("Data/history.txt"));
@@ -46,12 +45,10 @@ public class Dictionary {
 		}
 	}
 	
-	// Clear Search History
 	public void clearHistory() {
 		historyList.clear();
 	}
 	
-	// 1. Find Definition of Slang words
 	public List<String> findBySlangWord(String word) {
 		LocalDateTime current = LocalDateTime.now();
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -72,7 +69,6 @@ public class Dictionary {
 		return dictionary.get(word);
 	}
 	
-	// 2. Find all Slang words which have same definition
 	public List<String> findByDefinition(String word) {
 		LocalDateTime current = LocalDateTime.now();
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -106,12 +102,10 @@ public class Dictionary {
 		return slangList;
 	}
 	
-	// 3. Get search history
-	public List<String> gethistoryList() {
+	public List<String> getHistoryList() {
 		return historyList;
 	}
 	
-	// 4. Add or overwrite or duplicate a slang
 	public void addSlangWord(String slang, List<String> definitions, String option) {
 		slang = slang.toUpperCase();
 		if (Objects.equals(option, "overwrite")) {
@@ -129,7 +123,6 @@ public class Dictionary {
 		}
 	}
 	
-	// 5. Edit a slang
 	public void editSlang(String slang, String definition, String newDefinition, String option) {
 		slang = slang.toUpperCase();
 		if (Objects.equals(option, "replace")) {
@@ -178,7 +171,6 @@ public class Dictionary {
 		}
 	}
 	
-	// 6. Delete a slang
 	public boolean deleteSlang(String slang) {
 		if (dictionary.containsKey(slang)) {
 			dictionary.remove(slang);
@@ -188,7 +180,6 @@ public class Dictionary {
 		}
 	}
 	
-	// 7. Reset a dictionary
 	public void resetDictionary() {
 		dictionary.clear();
 		try {
@@ -214,7 +205,7 @@ public class Dictionary {
 	// if (time1.isAfter(time2)) {
 		
 	// }
-	// 8. Random a slang in dictionary
+
 	public String randomSlang() {
 		Random rd = new Random();
 		int randomNumber = rd.nextInt(dictionary.size());
@@ -243,7 +234,6 @@ public class Dictionary {
 		return a;
 	}
 	
-	// 9. "Choose a correct definition of the slang" Game
 	public String slangGameA() {
 		Random random = new Random();
 		String data;
@@ -271,7 +261,6 @@ public class Dictionary {
 		return data;
 	}
 	
-	// 10. "Choose a correct slang of the definition" Game
 	public String slangGameB() {
 		String data;
 		Random random = new Random();
@@ -292,7 +281,6 @@ public class Dictionary {
 		return data;
 	}
 	
-	// Update Data
 	public void updateData() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("src/Data/slang.txt"));
@@ -313,7 +301,6 @@ public class Dictionary {
 		}
 	}
 	
-	// Update History
 	public void updateHistory() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("src/Data/history.txt"));

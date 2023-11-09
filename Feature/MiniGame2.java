@@ -14,8 +14,7 @@ import java.util.List;
 public class MiniGame2 extends JFrame implements ActionListener {
 	private final Dictionary Dictionary;
 	private final JButton backBtn, exitBtn;
-	private final JButton aBtn, bBtn, cBtn, dBtn;
-	private final JButton checkBtn, nextBtn;
+	private final JButton aBtn, bBtn, cBtn, dBtn,checkBtn, nextBtn;
 	private final JLabel correct, wrong;
 	private final JTextField answerField;
 	private final String gameAnswer;
@@ -23,81 +22,79 @@ public class MiniGame2 extends JFrame implements ActionListener {
 	public MiniGame2(Dictionary dictionary) {
 		this.Dictionary = dictionary;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Mini Game");
-		this.setResizable(false);
-        this.setSize(700, 700);
-        this.setLocation(500, 200);
-		
+		this.setTitle("Edit Slang");
+		this.setVisible(true);
+		this.setSize(700, 700);
+
 		JLabel label = new JLabel();
-		label.setBounds(100, 30, 300, 50);
-		label.setText("Mini Game Slang Definition");
-		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label.setBounds(100, 50, 300, 50);
+		label.setText("Mini Game Slang Word");
+		label.setFont(new Font("Auto Sans", Font.PLAIN, 40));
 		label.setForeground(Color.BLACK);
-		label.setHorizontalTextPosition(JLabel.CENTER);
-		label.setVerticalTextPosition(JLabel.CENTER);
-		label.setHorizontalAlignment(JLabel.CENTER);
-		label.setVerticalAlignment(JLabel.CENTER);
+		label.setAlignmentX(CENTER_ALIGNMENT);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(50, 80, 400, 290);
+		panel.setBounds(50, 70, 400, 400);
 		panel.setLayout(null);
 		panel.setBackground(Color.WHITE);
 		panel.setOpaque(true);
 		
 		JLabel question = new JLabel();
-		question.setText("What is the correct slang of");
-		question.setBounds(145, 10, 200, 30);
+		question.setText("What is the Definition of: ");
+		question.setFont(new Font("Auto Sans", Font.PLAIN, 18));
+		question.setBounds(200, 10, 250, 30);
 		
 		JTextField word = new JTextField();
 		word.setEditable(false);
-		word.setBounds(50, 40, 300, 30);
+		word.setBounds(200, 40, 200, 50);
 		
 		aBtn = new JButton();
-		aBtn.setBounds(20, 100, 180, 40);
+		aBtn.setBounds(100, 120, 200, 40);
 		aBtn.setFocusable(false);
 		aBtn.addActionListener(this);
 		
 		bBtn = new JButton();
-		bBtn.setBounds(200, 100, 180, 40);
+		bBtn.setBounds(320, 120, 200, 40);
 		bBtn.setFocusable(false);
 		bBtn.addActionListener(this);
 		
 		cBtn = new JButton();
-		cBtn.setBounds(20, 140, 180, 40);
+		cBtn.setBounds(100, 170, 200, 40);
 		cBtn.setFocusable(false);
 		cBtn.addActionListener(this);
 		
 		dBtn = new JButton();
-		dBtn.setBounds(200, 140, 180, 40);
+		dBtn.setBounds(320, 170, 200, 40);
 		dBtn.setFocusable(false);
 		dBtn.addActionListener(this);
 		
 		JLabel answer = new JLabel();
-		answer.setText("Your answer:");
-		answer.setBounds(10, 190, 80, 30);
+		answer.setText("Your answer: ");
+		answer.setBounds(110, 240, 80, 30);
 		
 		answerField = new JTextField();
 		answerField.setEditable(false);
-		answerField.setBounds(90, 190, 200, 30);
+		answerField.setBounds(200, 240, 250, 30);
 		
 		checkBtn = new JButton("Check");
-		checkBtn.setBounds(300, 190, 90, 30);
+		checkBtn.setBounds(470, 240, 90, 30);
 		checkBtn.setFocusable(false);
 		checkBtn.addActionListener(this);
 		
 		correct = new JLabel();
-		correct.setText("Well done. ");
-		correct.setBounds(80, 240, 100, 30);
+		correct.setText("Well done !!!");
+		correct.setBounds(200, 280, 100, 30);
 		correct.setVisible(false);
 		
 		wrong = new JLabel();
 		wrong.setText("Incorrect. Please try again!!!");
-		wrong.setBounds(110, 240, 200, 30);
+		wrong.setFont(new Font("Auto Sans", Font.PLAIN, 15));
+		wrong.setBounds(200, 280, 200, 30);
 		wrong.setVisible(false);
 		
 		nextBtn = new JButton("Next");
 		nextBtn.setFocusable(false);
-		nextBtn.setBounds(190, 240, 120, 30);
+		nextBtn.setBounds(290, 280, 120, 30);
 		nextBtn.setVisible(false);
 		nextBtn.addActionListener(this);
 		
@@ -136,26 +133,37 @@ public class MiniGame2 extends JFrame implements ActionListener {
 		
 		backBtn = new JButton("Back");
 		backBtn.setFocusable(false);
-		backBtn.setBounds(50, 400, 100, 30);
-		backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		backBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		backBtn.addActionListener(this);
 		
 		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
-		exitBtn.setBounds(350, 400, 100, 30);
-		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		exitBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		exitBtn.addActionListener(this);
 		
-		this.add(label);
-		this.add(backBtn);
-		this.add(exitBtn);
-		this.add(panel);
-		this.setSize(500, 500);
-		this.setLayout(null);
-		this.setVisible(true);
+		JPanel panel2 = new JPanel();
+		panel2.setBounds(50,0 , 100, 100);
+		panel2.add(backBtn);
+		panel2.add(exitBtn);
+
+		Dimension size2 = new Dimension(600, 400);
+		panel.setMaximumSize(size2);
+		panel.setPreferredSize(size2);
+		panel.setMinimumSize(size2);
+		Container con = this.getContentPane();
+		con.setLayout(new BoxLayout(con, BoxLayout.Y_AXIS));
+		con.add(Box.createRigidArea(new Dimension(0, 10)));
+		con.add(label);
+		con.add(Box.createRigidArea(new Dimension(0, 50)));
+		con.add(panel);
+		con.add(Box.createRigidArea(new Dimension(0, 100)));
+		con.add(panel2);
+
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 		this.addWindowListener(new WindowAdapter() {
 			@Override public void windowClosing(WindowEvent e) {
-                Dictionary.updateData();
+				Dictionary.updateData();
 				Dictionary.updateHistory();
 				super.windowClosing(e);
 			}

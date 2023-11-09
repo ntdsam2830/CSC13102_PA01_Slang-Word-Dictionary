@@ -24,7 +24,7 @@ public class RandomSlang extends JFrame implements ActionListener {
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);
 		label.setText("Here is your random Slang: ");
-		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label.setFont(new Font("Auto Sans", Font.PLAIN, 20));
 		label.setForeground(Color.BLACK);
 		label.setHorizontalTextPosition(JLabel.CENTER);
 		label.setVerticalTextPosition(JLabel.CENTER);
@@ -34,7 +34,7 @@ public class RandomSlang extends JFrame implements ActionListener {
         JLabel label2 = new JLabel();
         label2.setBounds(100, 100, 300, 100);
         label2.setText(this.Dictionary.randomSlang());
-        label2.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+        label2.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		label2.setOpaque(true);
 		label2.setBackground(Color.WHITE);
 		label2.setForeground(Color.BLACK);
@@ -46,13 +46,13 @@ public class RandomSlang extends JFrame implements ActionListener {
 		backBtn = new JButton("Back");
 		backBtn.setFocusable(false);
 		backBtn.setBounds(50, 400, 100, 30);
-		backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		backBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		backBtn.addActionListener(this);
 		
 		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
 		exitBtn.setBounds(350, 400, 100, 30);
-		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		exitBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		exitBtn.addActionListener(this);
 		
 		this.add(label);

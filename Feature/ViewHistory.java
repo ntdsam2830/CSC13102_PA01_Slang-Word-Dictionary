@@ -26,7 +26,7 @@ public class ViewHistory extends JFrame implements ActionListener {
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);
 		label.setText("View History");
-		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label.setFont(new Font("Auto Sans", Font.PLAIN, 20));
 		label.setForeground(Color.BLACK);
 		label.setHorizontalTextPosition(JLabel.CENTER);
 		label.setVerticalTextPosition(JLabel.CENTER);
@@ -36,19 +36,19 @@ public class ViewHistory extends JFrame implements ActionListener {
 		backBtn = new JButton("Back");
 		backBtn.setFocusable(false);
 		backBtn.setBounds(50, 400, 100, 30);
-		backBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		backBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		backBtn.addActionListener(this);
 		
 		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
 		exitBtn.setBounds(350, 400, 100, 30);
-		exitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		exitBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		exitBtn.addActionListener(this);
 		
 		model = new DefaultListModel<>();
-		model.addAll(this.Dictionary.gethistoryList());
+		model.addAll(this.Dictionary.getHistoryList());
 		list = new JList<>(model);
-		list.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		list.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
