@@ -283,7 +283,7 @@ public class Dictionary {
 	
 	public void updateData() {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("src/Data/slang.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Data/slang.txt"));
 			for (String s : dictionary.keySet()) {
 				bw.write(s + "`");
 				List<String> temp = dictionary.get(s);
@@ -303,7 +303,7 @@ public class Dictionary {
 	
 	public void updateHistory() {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("src/Data/history.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Data/history.txt"));
 			for (String temp : historyList) {
 				bw.write(temp + "\n");
 			}

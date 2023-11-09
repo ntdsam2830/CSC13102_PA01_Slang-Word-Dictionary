@@ -18,23 +18,14 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 	private final JList<String> list;
 	
 	public SearchByDefinition(Dictionary dictionary) {
-		this.Dictionary = dictionary;
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Search Slang");
-		this.setResizable(false);
-        this.setSize(700, 700);
-        this.setLocation(500, 200);
-		
+
 		JLabel label = new JLabel();
 		label.setBounds(100, 50, 300, 50);
-		label.setText("Search Slang By Definition");
-		label.setFont(new Font("Auto Sans", Font.PLAIN, 20));
+		label.setText("Search Slang with Definition");
+		label.setFont(new Font("Auto Sans", Font.PLAIN, 40));
 		label.setForeground(Color.BLACK);
-		label.setHorizontalTextPosition(JLabel.CENTER);
-		label.setVerticalTextPosition(JLabel.CENTER);
-		label.setHorizontalAlignment(JLabel.CENTER);
-		label.setVerticalAlignment(JLabel.CENTER);
-		
+		label.setAlignmentX(CENTER_ALIGNMENT);
+
 		JPanel panel = new JPanel();
 		panel.setBounds(50, 100, 400, 160);
 		panel.setLayout(null);
@@ -42,13 +33,13 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		panel.setOpaque(true);
 		
 		JLabel container = new JLabel();
-		container.setText("Enter the definition you want to search");
+		container.setText("Enter the Definition you want to search");
 		container.setFont(new Font("Auto Sans", Font.PLAIN, 18));
 		container.setForeground(Color.BLACK);
-		container.setBounds(60, 10, 300, 50);
+		container.setBounds(150, 10, 400, 50);
 		
 		textField = new JTextField();
-		textField.setBounds(50, 60, 300, 30);
+		textField.setBounds(150, 60, 300, 30);
 		textField.setFont(new Font("Auto Sans", Font.PLAIN, 18));
 		textField.setForeground(Color.BLACK);
 		
@@ -56,12 +47,9 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		searchBtn.setFont(new Font("Auto Sans", Font.PLAIN, 18));
 		searchBtn.setForeground(Color.BLACK);
 		searchBtn.setFocusable(false);
-		searchBtn.setBounds(150, 100, 100, 30);
+		searchBtn.setBounds(250, 100, 100, 30);
 		searchBtn.addActionListener(this);
 		
-		panel.add(container);
-		panel.add(textField);
-		panel.add(searchBtn);
 		
 		DefaultListModel<String> model = new DefaultListModel<>();
 		list = new JList<>(model);
@@ -71,28 +59,50 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setBounds(50, 280, 400, 100);
+		scrollPane.setBounds(100, 250, 400, 100);
+
+		panel.add(container);
+		panel.add(textField);
+		panel.add(searchBtn);
+		panel.add(scrollPane);
 		
 		backBtn = new JButton("Back");
 		backBtn.setFocusable(false);
 		backBtn.setBounds(50, 400, 100, 30);
-		backBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
+		backBtn.setFont(new Font("Auto Sans", Font.BOLD, 18));
 		backBtn.addActionListener(this);
 		
 		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
 		exitBtn.setBounds(350, 400, 100, 30);
-		exitBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
+		exitBtn.setFont(new Font("Auto Sans", Font.BOLD, 18));
 		exitBtn.addActionListener(this);
-		
-		this.add(label);
-		this.add(panel);
-		this.add(scrollPane);
-		this.add(backBtn);
-		this.add(exitBtn);
-		this.setSize(500, 500);
-		this.setLayout(null);
+
+		JPanel panel2 = new JPanel();
+		panel2.setBounds(50,0 , 100, 100);
+		panel2.add(backBtn);
+		panel2.add(exitBtn);
+
+		Dimension size2 = new Dimension(600, 400);
+		panel.setMaximumSize(size2);
+		panel.setPreferredSize(size2);
+		panel.setMinimumSize(size2);
+		Container con = this.getContentPane();
+		con.setLayout(new BoxLayout(con, BoxLayout.Y_AXIS));
+		con.add(Box.createRigidArea(new Dimension(0, 10)));
+		con.add(label);
+		con.add(Box.createRigidArea(new Dimension(0, 50)));
+		con.add(panel);
+		con.add(Box.createRigidArea(new Dimension(0, 100)));
+		con.add(panel2);
+
+		this.Dictionary = dictionary;
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Search Slang");
 		this.setVisible(true);
+		this.setSize(700, 700);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 		this.addWindowListener(new WindowAdapter() {
 			@Override public void windowClosing(WindowEvent e) {
 				Dictionary.updateData();

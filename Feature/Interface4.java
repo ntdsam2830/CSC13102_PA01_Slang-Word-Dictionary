@@ -29,7 +29,7 @@ public class Interface4 extends JFrame implements ActionListener {
 		historyBtn .addActionListener(this);
 		
 		resetBtn = new JButton("Reset Dictionary");
-		historyBtn.setFont(new Font("Auto Sans", Font.BOLD, 18));
+		resetBtn.setFont(new Font("Auto Sans", Font.BOLD, 18));
 		resetBtn.setFocusable(false);
 		resetBtn.addActionListener(this);
 
