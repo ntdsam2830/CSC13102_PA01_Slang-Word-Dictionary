@@ -69,13 +69,13 @@ public class SearchByDefinition extends JFrame implements ActionListener {
 		backBtn = new JButton("Back");
 		backBtn.setFocusable(false);
 		backBtn.setBounds(50, 400, 100, 30);
-		backBtn.setFont(new Font("Auto Sans", Font.BOLD, 18));
+		backBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		backBtn.addActionListener(this);
 		
 		exitBtn = new JButton("Exit");
 		exitBtn.setFocusable(false);
 		exitBtn.setBounds(350, 400, 100, 30);
-		exitBtn.setFont(new Font("Auto Sans", Font.BOLD, 18));
+		exitBtn.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		exitBtn.addActionListener(this);
 
 		JPanel panel2 = new JPanel();

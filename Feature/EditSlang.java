@@ -120,9 +120,9 @@ public class EditSlang extends JFrame implements ActionListener {
 		addConfirm.addActionListener(this);
 		
 		deleteLabel = new JLabel();
-		deleteLabel.setText("This Slang only have 1 definition. Cannot delete.");
+		deleteLabel.setText("This Slang only has 1 definition. Cannot delete.");
 		deleteLabel.setFont(new Font("Auto Sans", Font.BOLD, 15));
-		deleteLabel.setBounds(120, 300, 350, 30);
+		deleteLabel.setBounds(120, 300, 400, 30);
 		deleteLabel.setVisible(false);
 		
 		panel.add(container1);
@@ -205,7 +205,7 @@ public class EditSlang extends JFrame implements ActionListener {
 			addConfirm.setVisible(false);
 			deleteLabel.setVisible(false);
 		} else if (e.getSource() == replaceBtn) {
-			definitionLabel.setText("Definition of " +
+			definitionLabel.setText("Definition of: " +
 											editSlang.getText());
 			editSlang.setEditable(false);
 			definitionLabel.setVisible(true);
@@ -237,7 +237,7 @@ public class EditSlang extends JFrame implements ActionListener {
 				definitionList.setModel(temp);
 			}
 		} else if (e.getSource() == deleteBtn) {
-			definitionLabel.setText("Definition of " +
+			definitionLabel.setText("Definition of: " +
 											editSlang.getText());
 			editSlang.setEditable(false);
 			definitionLabel.setVisible(true);
@@ -275,7 +275,7 @@ public class EditSlang extends JFrame implements ActionListener {
 			}
 		} else if (e.getSource() == addBtn) {
 			editSlang.setEditable(false);
-			definitionLabel.setText("Current Definition of " +
+			definitionLabel.setText("Current Definition of: " +
 											editSlang.getText());
 			scrollPane.setVisible(true);
 			replaceLabel.setVisible(false);

@@ -90,7 +90,7 @@ public class DeleteSlang extends JFrame implements ActionListener {
 		noBtn.setVisible(false);
 		
 		notify1 = new JLabel();
-		notify1.setBounds(230, 300, 200, 30);
+		notify1.setBounds(250, 300, 200, 30);
 		notify1.setText("Delete successfully.");
 		notify1.setFont(new Font("Auto Sans", Font.PLAIN, 18));
 		notify1.setForeground(Color.BLACK);

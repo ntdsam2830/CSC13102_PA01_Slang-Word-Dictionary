@@ -61,7 +61,7 @@ public class AddSlang extends JFrame implements ActionListener {
 		addBtn.addActionListener(this);
 		
 		notification = new JLabel();
-		notification.setText("This Slang has already existed. Do you want to change?");
+		notification.setText("This Slang has already existed. Do you want to continue?");
 		notification.setBounds(110, 220, 400, 30);
 		notification.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		notification.setVisible(false);
@@ -89,7 +89,7 @@ public class AddSlang extends JFrame implements ActionListener {
 		
 		success = new JLabel();
 		success.setText("Add successfully");
-		success.setBounds(220, 300, 400, 30);
+		success.setBounds(250, 300, 400, 30);
 		success.setFont(new Font("Auto Sans", Font.PLAIN, 15));
 		success.setVisible(false);
 		
